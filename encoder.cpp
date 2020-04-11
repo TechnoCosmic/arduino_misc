@@ -13,9 +13,16 @@
 // _BTN and _CLK should be on D2/D3 (or D3/D2, doesn't matter) unless you want to
 // hand-code the PCINTs for the other interrupts that attachInterrupt() doesn't
 // support
-#define PIN_ENCODER_BTN 2
-#define PIN_ENCODER_CLK 3
-#define PIN_ENCODER_DIR 4
+const int PIN_ENCODER_BTN{ 2 };
+const int PIN_ENCODER_CLK{ 3 };
+const int PIN_ENCODER_DIR{ 4 };
+
+
+/// @brief Specifies the direction of rotation of the encoder
+enum RotationDirection {
+  CounterClockwise = -1,
+  Clockwise = 1,
+};
 
 
 // default (empty) handlers
@@ -54,12 +61,12 @@ namespace {
       _lastEncoderClockState = curEncoderClockState;
   
       if ( digitalRead( PIN_ENCODER_CLK ) ) {
-        auto dir{ 1 };
+        auto dir{ RotationDirection::Clockwise };
 
         if ( !!digitalRead( PIN_ENCODER_DIR ) ) {
-          dir = -1;
+          dir = RotationDirection::CounterClockwise;
         }  
-          
+
         onEncoderRotate( dir, !!!digitalRead( PIN_ENCODER_BTN ) );
       }
     }
