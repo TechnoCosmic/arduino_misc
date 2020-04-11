@@ -10,9 +10,9 @@
 #include <arduino.h>
 #include <avr/interrupt.h>
 
-// _BTN and _CLK should be on D2 and D3 unless you want
-// to hand-code the PCINTs for the other interrupts that
-// attachInterrupt() doesn't support
+// _BTN and _CLK should be on D2/D3 (or D3/D2, doesn't matter) unless you want to
+// hand-code the PCINTs for the other interrupts that attachInterrupt() doesn't
+// support
 #define PIN_ENCODER_BTN 2
 #define PIN_ENCODER_CLK 3
 #define PIN_ENCODER_DIR 4
@@ -20,9 +20,10 @@
 
 // default (empty) handlers
 
-/// @brief This is called when the rotary encoder is turned.
+/// @brief This is called when the rotary encoder is turned
 /// @param direction -1 when turned counter clockwise, 1 when turned clockwise.
-/// @param buttonDown true if the rotary encoder button is down, false otherwise.
+/// @param buttonDown true if the rotary encoder button is pressed down during the
+/// rotation, false otherwise.
 void __attribute__((weak)) onEncoderRotate( const int direction, const bool buttonDown )
 {
   // empty
