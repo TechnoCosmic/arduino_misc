@@ -3,9 +3,12 @@
 
 // NO WARRANTY - PLEASE BE SURE CODE IS FIT FOR PURPOSE BEFORE USE
 
+// NOTE: This code assumes hardware debouncing circuitry is supplied for all three
+// pins. If this isn't the case, consider adjusting this code to provide debouncing
+// in software.
+
 #include <arduino.h>
 #include <avr/interrupt.h>
-
 
 // _BTN and _CLK should be on D2 and D3 unless you want
 // to hand-code the PCINTs for the other interrupts that
