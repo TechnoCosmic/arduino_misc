@@ -47,7 +47,7 @@ namespace {
   // Encoder rotate ISR
   void handleEncoderRotate()
   {
-    const auto curEncoderClockState{ digitalRead( PIN_ENCODER_CLK ) };
+    const bool curEncoderClockState{ !!digitalRead( PIN_ENCODER_CLK ) };
   
     if ( curEncoderClockState != _lastEncoderClockState ) {
       _lastEncoderClockState = curEncoderClockState;
@@ -68,7 +68,7 @@ namespace {
   // Encoder push button ISR
   void handleEncoderPush()
   {
-    const auto curEncoderButtonState{ digitalRead( PIN_ENCODER_BTN ) };
+    const bool curEncoderButtonState{ !!digitalRead( PIN_ENCODER_BTN ) };
   
     if ( curEncoderButtonState != _lastEncoderButtonState ) {
       _lastEncoderButtonState = curEncoderButtonState;  
