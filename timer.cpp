@@ -13,6 +13,11 @@ void __attribute__((constructor)) initTicks()
 
 
 // default (empty) handler
+
+/// @brief Allows simple scheduled events on a timer
+/// @details This function is called approximately every one (1) millisecond. Be quick here, as
+/// code inside this handler is running inside an ISR and other interrupts are disabled during
+/// this time.
 void __attribute__((weak)) onTick()
 {
   // empty

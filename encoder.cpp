@@ -19,12 +19,18 @@
 
 
 // default (empty) handlers
+
+/// @brief This is called when the rotary encoder is turned.
+/// @param direction -1 when turned counter clockwise, 1 when turned clockwise.
+/// @param buttonDown true if the rotary encoder button is down, false otherwise.
 void __attribute__((weak)) onEncoderRotate( const int direction, const bool buttonDown )
 {
   // empty
 }
 
 
+/// @brief Called when the rotary encoder button is pressed or released
+/// @param buttonDown true if the button was pressed, false if it was released.
 void __attribute__((weak)) onEncoderButton( const bool buttonDown )
 {
   // empty
