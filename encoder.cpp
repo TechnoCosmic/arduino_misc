@@ -71,14 +71,8 @@ namespace {
     const auto curEncoderButtonState{ digitalRead( PIN_ENCODER_BTN ) };
   
     if ( curEncoderButtonState != _lastEncoderButtonState ) {
-      _lastEncoderButtonState = curEncoderButtonState;
-  
-      if ( digitalRead( PIN_ENCODER_BTN ) ) {
-        onEncoderButton( false );  
-      }
-      else {
-        onEncoderButton( true );
-      }
+      _lastEncoderButtonState = curEncoderButtonState;  
+      onEncoderButton( !curEncoderButtonState );  
     }
   }
   
